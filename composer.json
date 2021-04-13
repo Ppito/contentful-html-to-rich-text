@@ -1,0 +1,29 @@
+{
+  "name": "ppito/contentful-html-to-rich-text",
+  "description": "Contentful - HTML to Rich Text",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/ppito/contentful-html-to-rich-text",
+  "keywords": [
+    "Contentful",
+    "HTML",
+    "Parser",
+    "Rich Text",
+    "Convertiser",
+    "HTML to Rich Text"
+  ],
+  "authors": [
+    {
+      "name": "Mickael TONNELIER",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.3 || ^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Contentful\\": "src/"
+    }
+  }
+}
