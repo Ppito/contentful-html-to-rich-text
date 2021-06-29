@@ -7,7 +7,6 @@ use DOMNode;
 use DOMElement;
 use DOMNodeList;
 use DOMDocument;
-use ForceUTF8\Encoding;
 
 class Tool
 {
@@ -65,7 +64,7 @@ class Tool
             } elseif ($node->nodeName === 'a') {
                 $nodeParse = new Models\Node("a", new Models\Link($node->getAttribute('href')), self::getChildElements($node->childNodes, --$max));
             } elseif (array_key_exists($node->nodeName, self::$textNodeList)) {
-                $nodeParse = new Models\TextNode("text", Encoding::fixUTF8($node->nodeValue, Encoding::ICONV_TRANSLIT), new Models\Unit(), self::getMarks($node));
+                $nodeParse = new Models\TextNode("text", utf8_decode($node->nodeValue), new Models\Unit(), self::getMarks($node));
             } else {
                 $nodeParse = new Models\Node("unknown", new Models\Unit(), []);
             }
