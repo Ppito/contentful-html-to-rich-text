@@ -63,7 +63,7 @@ class Tool
             if ($simple = (self::$simpleNodeList[$node->nodeName] ?? null)) {
                 $nodeParse = new Models\Node($simple, new Models\Unit(), self::getChildElements($node->childNodes, --$max));
             } elseif ($node->nodeName === 'a') {
-                $nodeParse = new Models\Node("a", new Models\Link($node->getAttribute('href')), self::getChildElements($node->childNodes, --$max));
+                $nodeParse = new Models\Node("hyperlink", new Models\Link($node->getAttribute('href')), self::getChildElements($node->childNodes, --$max));
             } elseif (array_key_exists($node->nodeName, self::$textNodeList)) {
                 $nodeParse = new Models\TextNode("text", Encoding::toWin1252($node->nodeValue), new Models\Unit(), self::getMarks($node));
             } else {
